@@ -1,0 +1,16 @@
+default:
+  image: docker:stable
+  services:
+    - docker:18.09-dind
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - docker login -u wperron_mdf -p ${REGISTRY_TOKEN} registry.gitlab.com
+    - docker build . -t terraform-eks:latest
+    - docker tag terraform-eks:latest registry.gitlab.com/wperron_mdf/terraform-eks:latest
+    - docker tag terraform-eks:latest registry.gitlab.com/wperron_mdf/terraform-eks:${CI_REF_SLUG}
+    - docker tag terraform-eks:latest registry.gitlab.com/wperron_mdf/terraform-eks:${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}
