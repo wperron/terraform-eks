@@ -10,7 +10,7 @@ build:
   stage: build
   script:
     # login and build
-    - docker login -u wperron_mdf -p ${REGISTRY_TOKEN} registry.gitlab.com
+    - docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} registry.gitlab.com
     - docker build . -t terraform-eks:latest
     # tag
     - docker tag terraform-eks:latest registry.gitlab.com/wperron_mdf/terraform-eks:latest
