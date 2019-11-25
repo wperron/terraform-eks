@@ -19,5 +19,10 @@ jobs:
           docker tag terraform-eks:latest wperron/terraform-eks:latest
           docker tag terraform-eks:latest wperron/terraform-eks:$(basename ${GITHUB_REF})
           docker tag terraform-eks:latest wperron/terraform-eks:$(basename ${GITHUB_REF})-${GITHUB_SHA:0:8}
+      - name: Login to Docker registry
+        run: docker login -u wperron -p ${{ secrets.docker_password }}
       - name: Publish the Docker image
-        run: docker push wperron/terraform-eks
+        run: |
+          docker push wperron/terraform-eks:latest
+          docker push wperron/terraform-eks:$(basename ${GITHUB_REF})
+          docker push wperron/terraform-eks:$(basename ${GITHUB_REF})-${GITHUB_SHA:0:8}
