@@ -1,0 +1,23 @@
+name: Docker Image Build
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag terraform-eks:latest
+      - name: Tag the Docker image
+        run: |
+          docker tag terraform-eks:latest wperron/terraform-eks:latest
+          docker tag terraform-eks:latest wperron/terraform-eks:$(basename ${GITHUB_REF})
+          docker tag terraform-eks:latest wperron/terraform-eks:$(basename ${GITHUB_REF})-${GITHUB_SHA:0:8}
+      - name: Publish the Docker image
+        run: docker push wperron/terraform-eks
