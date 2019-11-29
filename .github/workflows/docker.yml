@@ -15,13 +15,13 @@ jobs:
       - name: Publish to Docker Hub Registry
         uses: elgohr/Publish-Docker-Github-Action@2.9
         with:
-          name: myDocker/repository
+          name: wperron/terraform-eks
           username: wperron
           password: ${{ secrets.docker_password }}
       - name: Publish to GitHub Registry
         uses: elgohr/Publish-Docker-Github-Action@2.9
         with:
-          name: myDocker/repository
+          name: wperron/terraform-eks
           username: wperron
-          password: ${{ secrets.docker_password }}
+          password: $GITHUB_TOKEN
           registry: docker.pkg.github.com
