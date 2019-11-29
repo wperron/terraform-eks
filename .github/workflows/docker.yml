@@ -18,6 +18,7 @@ jobs:
           name: wperron/terraform-eks
           username: wperron
           password: ${{ secrets.docker_password }}
+          tag_names: true
       - name: Publish to GitHub Registry
         uses: elgohr/Publish-Docker-Github-Action@2.9
         with:
@@ -25,3 +26,4 @@ jobs:
           username: wperron
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
+          tag_names: true
