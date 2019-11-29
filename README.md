@@ -16,4 +16,4 @@ A Docker image to run the [terraform-aws-eks](https://github.com/terraform-aws-m
   - [aws-iam-authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator)
   - [Helm](https://github.com/helm/helm)
 
-[![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg)](https://snyk.io/test/github/{username}/{repo}) 
+[![Known Vulnerabilities](https://snyk.io/test/github/wperron/terraform-eks/badge.svg)](https://snyk.io/test/github/wperron/terraform-eks) 
