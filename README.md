@@ -15,3 +15,5 @@ A Docker image to run the [terraform-aws-eks](https://github.com/terraform-aws-m
   - [AWS' distribution of Kubectl](https://github.com/actions/aws/tree/master/kubectl)
   - [aws-iam-authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator)
   - [Helm](https://github.com/helm/helm)
+
+![](https://github.com/wperron/terraform-eks/workflows/Docker%20Image%20Build/badge.svg)
