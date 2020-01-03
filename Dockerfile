@@ -1,18 +1,23 @@
-FROM hashicorp/terraform:light
+FROM hashicorp/terraform:light as deps
 RUN apk update && \
-  apk add curl wget zip unzip tar
-RUN wget https://releases.hashicorp.com/terraform/0.12.14/terraform_0.12.14_linux_amd64.zip && \
-  unzip terraform_0.12.14_linux_amd64.zip -d /usr/local/bin/ && \
+  apk --no-cache add \
+    curl=~7.66 \
+    zip=~3.0 \
+    unzip=~6.0 \
+    tar=~1.32 && \
+  rm -rf /var/cache/apk/*
+RUN curl --silent --location -o ./terraform_0.12.18_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip && \
+  unzip terraform_0.12.18_linux_amd64.zip -d /usr/local/bin/ && \
   curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   curl --silent --location -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator && \
   chmod +x /usr/local/bin/aws-iam-authenticator && \
-  wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz && \
+  curl --silent --location -o ./helm-v2.14.3-linux-amd64.tar.gz https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz && \
   tar -zxvf helm-v2.14.3-linux-amd64.tar.gz && \
   mv linux-amd64/helm /usr/local/bin/
 
 FROM hashicorp/terraform:light
 
-COPY --from=0 /lib /lib
-COPY --from=0 /bin /bin
-COPY --from=0 /usr /usr
+COPY --from=deps /lib /lib
+COPY --from=deps /bin /bin
+COPY --from=deps /usr/local/bin /usr/local/bin
