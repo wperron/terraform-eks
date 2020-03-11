@@ -8,9 +8,9 @@ RUN apk update && \
   rm -rf /var/cache/apk/*
 RUN curl --silent --location -o ./terraform_0.12.20_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip && \
   unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin/ && \
-  curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/kubectl && \
+  curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/darwin/amd64/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
-  curl --silent --location -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator && \
+  curl --silent --location -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator && \
   chmod +x /usr/local/bin/aws-iam-authenticator && \
   curl --silent --location -o ./helm-v2.14.3-linux-amd64.tar.gz https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz && \
   tar -zxvf helm-v2.14.3-linux-amd64.tar.gz && \
