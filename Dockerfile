@@ -1,7 +1,7 @@
 FROM hashicorp/terraform:light as deps
 RUN apk update && \
   apk --no-cache add \
-    curl=~7.66 \
+    curl=~7.67 \
     zip=~3.0 \
     unzip=~6.0 \
     tar=~1.32 && \
