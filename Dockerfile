@@ -6,8 +6,8 @@ RUN apk update && \
     unzip=~6.0 \
     tar=~1.32 && \
   rm -rf /var/cache/apk/*
-RUN curl --silent --location -o ./terraform_0.12.18_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip && \
-  unzip terraform_0.12.18_linux_amd64.zip -d /usr/local/bin/ && \
+RUN curl --silent --location -o ./terraform_0.12.20_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip && \
+  unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin/ && \
   curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   curl --silent --location -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator && \
