@@ -20,4 +20,5 @@ FROM hashicorp/terraform:light
 
 COPY --from=deps /lib /lib
 COPY --from=deps /bin /bin
+COPY --from=deps /usr/bin/curl /usr/bin/curl
 COPY --from=deps /usr/local/bin /usr/local/bin
