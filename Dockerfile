@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 RUN apt-get update -y && \
   apt-get install --no-install-recommends -y \
+    ca-certificates=20180409 \
     curl=7.58.0-2ubuntu3.8 \
     zip=3.0-11build1 \
     unzip=6.0-21ubuntu1 \
