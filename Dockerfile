@@ -1,10 +1,10 @@
 FROM ubuntu:18.04
-RUN apt update -y && \
-  apt install -y \
-    curl \
-    zip \
-    unzip \
-    tar && \
+RUN apt-get update -y && \
+  apt-get install --no-install-recommends -y \
+    curl=7.58.0-2ubuntu3.8 \
+    zip=3.0-11build1 \
+    unzip=6.0-21ubuntu1 \
+    tar=1.29b-2ubuntu0.1 && \
   rm -rf /var/cache/apt/*
 RUN curl --silent --location -o ./terraform_0.12.20_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip && \
   unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin/ && \
