@@ -1,19 +1,19 @@
-# Terraform EKS Docker Image
+# Cloud CI Docker Image
 
-![](https://github.com/wperron/terraform-eks/workflows/Docker%20Image%20Build/badge.svg)
+![](https://github.com/wperron/cloud-ci/workflows/Docker%20Image%20Build/badge.svg)
 
-A Docker image to run the [terraform-aws-eks](https://github.com/terraform-aws-modules/terraform-aws-eks) in the context of a CI/CD Pipeline. Because of the module's reliance on `local-exec` deferring work to `kubectl` and `aws-iam-authenticator`, the official Hashicorp Terraform image cannot run it. This image builds on top of the [Hashicorp Terraform](https://hub.docker.com/r/hashicorp/terraform/) image and adds the missing binaries to run the `terraform-aws-eks` module.
+Initially created to run the [terraform-aws-eks](https://github.com/terraform-aws-modules/terraform-aws-eks) in the context of a CI/CD Pipeline, this image contains a curated list of binaries and applications useful for deploying and maintaining cloud infrastructure.
 
 ## Setup and Prerequisites
 
 - Have [Docker](https://docs.docker.com/install/) installed locally
-- Have [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) installed locally
 
 ## Dependencies
 
-- This image is built using the [Hashicorp Terraform](https://hub.docker.com/r/hashicorp/terraform/) image as a base.
-- This image also compiled binaries for:
+- This image is built using the stable version of the [Ubuntu](https://hub.docker.com/_/ubuntu) image as a base.
+- This image also includes compiled binaries for:
   - [Terraform](https://github.com/hashicorp/terraform)
   - [AWS' distribution of Kubectl](https://github.com/actions/aws/tree/master/kubectl)
   - [aws-iam-authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator)
   - [Helm](https://github.com/helm/helm)
+  - [aws cli](https://aws.amazon.com/cli/)

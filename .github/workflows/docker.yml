@@ -15,7 +15,7 @@ jobs:
       - name: Publish to Docker Hub Registry
         uses: elgohr/Publish-Docker-Github-Action@2.9
         with:
-          name: wperron/terraform-eks
+          name: wperron/cloud-ci
           username: wperron
           password: ${{ secrets.docker_password }}
           tag_names: true
@@ -23,7 +23,7 @@ jobs:
       - name: Publish to GitHub Registry
         uses: elgohr/Publish-Docker-Github-Action@2.9
         with:
-          name: wperron/terraform-eks/terraform-eks
+          name: wperron/cloud-ci/cloud-ci
           username: wperron
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
