@@ -7,8 +7,8 @@ RUN apt-get update -y && \
     unzip=6.0-25ubuntu1 \
     tar=1.30+dfsg-7 && \
   rm -rf /var/cache/apt/*
-RUN curl --silent --location -o ./terraform_0.12.20_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip && \
-  unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin/ && \
+RUN curl --silent --location -o ./terraform_0.12.26_linux_amd64.zip https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip && \
+  unzip terraform_0.12.26_linux_amd64.zip -d /usr/local/bin/ && \
   curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   curl --silent --location -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/aws-iam-authenticator && \
